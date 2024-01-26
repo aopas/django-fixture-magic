@@ -54,7 +54,7 @@ class Command(BaseCommand):
             if include_primary or not dump_settings['dependents']:
                 add_to_serialize_list([obj])
 
-        serialize_fully()
+        serialize_fully(exclude_fields=())
         data = serialize('json', [o for o in serialize_me if o is not None],
                          indent=4,
                          use_natural_foreign_keys=options.get('natural', False),
